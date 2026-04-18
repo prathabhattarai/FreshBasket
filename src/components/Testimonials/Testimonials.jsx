@@ -3,11 +3,11 @@ import Heading from "../Heading/Heading";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
-import Customer1 from "../../assets/Grocery Website Assets/Customer1.jpg";
-import Customer2 from "../../assets/Grocery Website Assets/Customer2.jpg";
-import Customer3 from "../../assets/Grocery Website Assets/Customer3.jpg";
-import Customer4 from "../../assets/Grocery Website Assets/Customer4.jpg";
-import Customer5 from "../../assets/Grocery Website Assets/Customer5.jpg";
+import Customer1 from "../../assets/Grocery Website Assets/customer1.jpg";
+import Customer2 from "../../assets/Grocery Website Assets/customer2.jpg";
+import Customer3 from "../../assets/Grocery Website Assets/customer3.jpg";
+import Customer4 from "../../assets/Grocery Website Assets/customer4.jpg";
+import Customer5 from "../../assets/Grocery Website Assets/customer5.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
