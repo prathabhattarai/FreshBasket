@@ -4,27 +4,55 @@ import Button from "../Button/Button";
 
 const Cards = ({ image, name, price }) => {
   return (
-    <div className="bg-zinc-100 p-5 rounded-xl">
-      {/* Card Icon */}
+    <article
+      className="bg-zinc-100 p-5 rounded-xl hover:shadow-lg transition-all duration-300"
+      aria-label={`Product card for ${name}`}
+    >
+      {/* Actions */}
       <div className="flex justify-between">
-        <span className="text-3xl text-zinc-300">
-          <FaHeart />
-        </span>
-        <button className="bg-gradient-to-b from-green-400 to-green-500 text-white text-xl px-4 py-3 rounded-lg" >
-          <FaPlus />
+
+        {/* Wishlist Button */}
+        <button
+          type="button"
+          aria-label={`Add ${name} to wishlist`}
+          className="text-3xl text-zinc-300 hover:text-red-500 transition-colors duration-300"
+        >
+          <FaHeart aria-hidden="true" />
+        </button>
+
+        {/* Add to Cart */}
+        <button
+          type="button"
+          aria-label={`Add ${name} to cart`}
+          className="bg-gradient-to-b from-green-400 to-green-500 text-white text-xl px-4 py-3 rounded-lg hover:from-green-500 hover:to-green-600 transition-all duration-300"
+        >
+          <FaPlus aria-hidden="true" />
         </button>
       </div>
-      {/* Card Image */}
-      <div className="w-full h-50 ">
-        <img src={image} className="w-full h-full mx-auto object-contain"/>
+
+      {/* Product Image */}
+      <div className="w-full h-50">
+        <img
+          src={image}
+          alt={name}
+          loading="lazy"
+          className="w-full h-full mx-auto object-contain"
+        />
       </div>
-      {/* Card Content */}
+
+      {/* Content */}
       <div className="text-center">
-        <h3 className="text-2xl ">{name}</h3>
-        <p className="text-2xl font-bold mt-4 mb-3">${price.toFixed(2)}</p>
+        <h3 className="text-2xl font-semibold text-zinc-800">
+          {name}
+        </h3>
+
+        <p className="text-2xl font-bold mt-4 mb-3 text-green-600">
+          ${Number(price).toFixed(2)}
+        </p>
+
         <Button content="Shop Now" />
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fresh-basket-two.vercel.app/sitemap.xml
