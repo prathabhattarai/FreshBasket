@@ -29,12 +29,27 @@ const Products = () => {
       className="bg-white"
     >
       <div className="max-w-[1400px] mx-auto px-10 py-20">
-        {/* Section Heading */}
+
+        {/* SECTION HEADING */}
         <div id="our-products">
-          <Heading highlight="Our" heading="Products" />
+          <Heading highlight="Fresh" heading="Organic Grocery Products" />
         </div>
 
-        {/* Category Tabs */}
+        {/* SEO INTRO TEXT (IMPORTANT FOR RANKING) */}
+        <p className="text-center text-zinc-600 max-w-2xl mx-auto mt-4 text-sm md:text-base leading-relaxed">
+          Explore a wide range of fresh organic groceries including fruits,
+          vegetables, dairy products, seafood, and daily essentials. All products
+          are carefully sourced from trusted farms and suppliers to ensure quality,
+          freshness, and fast home delivery.
+        </p>
+
+        {/* CATEGORY DESCRIPTION (SEO BOOST) */}
+        <p className="text-center text-zinc-500 mt-2 text-xs md:text-sm max-w-xl mx-auto">
+          Browse categories like fresh fruits, organic vegetables, dairy items,
+          and seafood to find exactly what you need for a healthy lifestyle.
+        </p>
+
+        {/* CATEGORY TABS */}
         <div
           className="flex gap-2 justify-center mt-10 flex-wrap"
           role="tablist"
@@ -57,21 +72,29 @@ const Products = () => {
           ))}
         </div>
 
-        {/* Product Grid */}
+        {/* PRODUCT GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-7 lg:gap-9 mt-20">
           {renderCards}
         </div>
 
-        {/* View All Button */}
+        {/* SEO SUPPORT TEXT BELOW PRODUCTS */}
+        <p className="text-center text-zinc-500 mt-10 text-sm max-w-2xl mx-auto">
+          FreshBasket ensures fast delivery of high-quality grocery items directly
+          to your doorstep. Shop fresh fruits, vegetables, dairy, meat, and seafood
+          online at affordable prices.
+        </p>
+
+        {/* VIEW ALL BUTTON */}
         <div className="mt-15 mx-auto w-fit">
           <Link
             to="/all-products"
-            aria-label="View all FreshBasket products"
+            aria-label="View all FreshBasket grocery products"
             className="bg-gradient-to-b from-green-400 to-green-500 text-white px-8 py-3 rounded-lg md:text-lg text-md hover:from-green-500 hover:to-green-600 transition-all duration-300"
           >
             View All Products
           </Link>
         </div>
+
       </div>
     </section>
   );

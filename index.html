@@ -5,13 +5,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ELBE6Y3E0B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-ELBE6Y3E0B");
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/icon.png" />
 
-    <!-- Title (SEO optimized) -->
-    <title>
-      FreshBasket | Online Grocery Delivery - Fresh Fruits, Vegetables & Dairy
-    </title>
+    <!-- SEO Title -->
+    <title>FreshBasket | Online Grocery Delivery</title>
 
     <!-- Meta Description -->
     <meta
@@ -19,7 +29,7 @@
       content="FreshBasket is your online grocery store for fresh fruits, vegetables, dairy, meat, and seafood. Get fresh products delivered fast to your doorstep."
     />
 
-    <!-- Keywords (light use only - Google mostly ignores now) -->
+    <!-- Keywords -->
     <meta
       name="keywords"
       content="freshbasket, online grocery delivery, fresh fruits, vegetables, dairy, meat, seafood, organic grocery store"
@@ -37,22 +47,31 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://fresh-basket-two.vercel.app/" />
 
-    <!-- Open Graph (Facebook / WhatsApp / LinkedIn) -->
+    <!-- Hreflang -->
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://fresh-basket-two.vercel.app/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://fresh-basket-two.vercel.app/"
+    />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="FreshBasket" />
-    <meta
-      property="og:title"
-      content="FreshBasket | Online Grocery Delivery"
-    />
+    <meta property="og:title" content="FreshBasket | Online Grocery Delivery" />
     <meta
       property="og:description"
       content="Order fresh fruits, vegetables, dairy, meat, and seafood online with fast delivery."
     />
+    <meta property="og:url" content="https://fresh-basket-two.vercel.app/" />
     <meta
-      property="og:url"
-      content="https://fresh-basket-two.vercel.app/"
+      property="og:image"
+      content="https://fresh-basket-two.vercel.app/icon.png"
     />
-    <meta property="og:image" content="https://fresh-basket-two.vercel.app/icon.png" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -62,14 +81,14 @@
     />
     <meta
       name="twitter:description"
-      content="Fresh fruits, vegetables, dairy & groceries delivered fast."
+      content="Fresh fruits, vegetables, dairy, meat & seafood delivered fast."
     />
     <meta
       name="twitter:image"
       content="https://fresh-basket-two.vercel.app/icon.png"
     />
 
-    <!-- Schema Markup (Local Business / Store) -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
