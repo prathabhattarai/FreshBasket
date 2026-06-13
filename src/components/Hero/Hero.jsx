@@ -22,7 +22,7 @@ const Hero = () => {
           {/* MAIN SEO H1 */}
           <h1
             id="hero-title"
-            className="md:text-7xl/20 text-5xl/14 font-bold mt-4 text-zinc-900"
+            className="md:text-7xl/20 text-5xl/14 font-bold mt-4 text-zinc-900 pb-8"
           >
             Fresh Organic{" "}
             <span className="text-green-600">Fruits</span>,{" "}
@@ -30,21 +30,6 @@ const Hero = () => {
             <br />
             Delivered to Your Doorstep
           </h1>
-
-          {/* SUPPORTING SEO TEXT (IMPORTANT FOR RANKING) */}
-          <p className="text-zinc-600 md:text-lg text-md max-w-[600px] mt-6 mb-4 leading-relaxed">
-            FreshBasket is your trusted online grocery delivery platform offering
-            farm-fresh organic fruits, vegetables, dairy products, meat, and
-            seafood. We ensure fast delivery, hygienic packaging, and affordable
-            prices so you can enjoy healthy living without leaving your home.
-          </p>
-
-          {/* SECONDARY SEO PARAGRAPH (boosts content length) */}
-          <p className="text-zinc-500 md:text-base text-sm max-w-[600px] mb-6">
-            Order fresh groceries online in just a few clicks and get same-day or
-            next-day delivery in your city. Quality guaranteed, directly from local
-            farms and trusted suppliers.
-          </p>
 
           <Button content="Shop Fresh Groceries" />
 
