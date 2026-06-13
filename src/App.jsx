@@ -1,40 +1,76 @@
-import React from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Layout from "./components/Layout/Layout";
-import Home from "./components/Home/Home";
-import Fruits from "./components/Fruits/Fruits";
-import Dairy from "./components/Dairy/Dairy";
-import SeaFood from "./components/SeaFood/SeaFood";
-import AllProducts from "./components/AllProducts/AllProducts";
+const Layout = lazy(() => import("./components/Layout/Layout"));
+const Home = lazy(() => import("./components/Home/Home"));
+const Fruits = lazy(() => import("./components/Fruits/Fruits"));
+const Dairy = lazy(() => import("./components/Dairy/Dairy"));
+const SeaFood = lazy(() => import("./components/SeaFood/SeaFood"));
+const AllProducts = lazy(() => import("./components/AllProducts/AllProducts"));
+const NotFound = lazy(() => import("./components/Error Page/Notfound"));
+
+const PageLoader = () => (
+  <div className="py-5 text-center text-green-500 font-medium animate-pulse">
+    Loading...
+  </div>
+);
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <Suspense fallback={<PageLoader />}>
+        <Layout />
+      </Suspense>
+    ),
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "fruits",
-        element: <Fruits />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <Fruits />
+          </Suspense>
+        ),
       },
       {
         path: "dairy",
-        element: <Dairy />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <Dairy />
+          </Suspense>
+        ),
       },
       {
         path: "seafood",
-        element: <SeaFood />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <SeaFood />
+          </Suspense>
+        ),
       },
       {
         path: "all-products",
-        element: <AllProducts />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <AllProducts />
+          </Suspense>
+        ),
+      },
+      {
+        path: "*",
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <NotFound />
+          </Suspense>
+        ),
       },
     ],
   },

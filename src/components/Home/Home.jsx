@@ -1,56 +1,73 @@
-import React, { useState } from "react";
-import Hero from "../Hero/Hero";
-import Category from "../Category/Category";
-import Values from "../Values/Values";
-import Products from "../Products/Products";
-import Discount from "../Discount/Discount";
-import Process from "../Process/Process";
-import Testimonials from "../Testimonials/Testimonials";
-import FAQ from "../FAQPage/FAQ";
+import React, { useState, lazy, Suspense } from "react";
+
+// Lazy load heavy sections
+const Hero = lazy(() => import("../Hero/Hero"));
+const Category = lazy(() => import("../Category/Category"));
+const Values = lazy(() => import("../Values/Values"));
+const Products = lazy(() => import("../Products/Products"));
+const Discount = lazy(() => import("../Discount/Discount"));
+const Process = lazy(() => import("../Process/Process"));
+const Testimonials = lazy(() => import("../Testimonials/Testimonials"));
+const FAQ = lazy(() => import("../FAQPage/FAQ"));
+
+const SectionLoader = () => (
+  <div style={{ padding: "40px", textAlign: "center" }}>
+    Loading...
+  </div>
+);
 
 const Home = () => {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu] = useState(false);
 
   return (
     <main id="home">
-      {/* Hero Section */}
+      {/* Hero - IMPORTANT FIRST PAINT */}
       <section aria-label="Hero section">
-        <Hero />
+        <Suspense fallback={<SectionLoader />}>
+          <Hero />
+        </Suspense>
       </section>
 
-      {/* Categories */}
       <section id="categories" aria-label="Product categories">
-        <Category />
+        <Suspense fallback={<SectionLoader />}>
+          <Category />
+        </Suspense>
       </section>
 
-      {/* Values */}
       <section id="about" aria-label="Our values">
-        <Values />
+        <Suspense fallback={<SectionLoader />}>
+          <Values />
+        </Suspense>
       </section>
 
-      {/* Products */}
       <section id="products" aria-label="Featured products">
-        <Products />
+        <Suspense fallback={<SectionLoader />}>
+          <Products />
+        </Suspense>
       </section>
 
-      {/* Discount */}
       <section aria-label="Special discount offers">
-        <Discount />
+        <Suspense fallback={<SectionLoader />}>
+          <Discount />
+        </Suspense>
       </section>
 
-      {/* Process */}
       <section id="process" aria-label="How FreshBasket works">
-        <Process />
+        <Suspense fallback={<SectionLoader />}>
+          <Process />
+        </Suspense>
       </section>
 
-      {/* Testimonials */}
       <section aria-label="Customer testimonials">
-        <Testimonials />
+        <Suspense fallback={<SectionLoader />}>
+          <Testimonials />
+        </Suspense>
       </section>
 
-      {/* FAQ */}
       <section id="faq" aria-label="Frequently asked questions">
-        <FAQ />
+        <Suspense fallback={<SectionLoader />}>
+          <FAQ />
+        </Suspense>
       </section>
     </main>
   );

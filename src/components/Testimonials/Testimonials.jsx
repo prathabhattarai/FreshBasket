@@ -121,6 +121,9 @@ const Testimonials = () => {
                     src={item.image}
                     alt={`${item.name} customer review`}
                     loading="lazy"
+                    decoding="async"
+                    width={300}
+                    height={300}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -145,9 +148,7 @@ const Testimonials = () => {
 
               {/* Review */}
               <div className="mt-10">
-                <p className="text-zinc-600 leading-relaxed">
-                  {item.para}
-                </p>
+                <p className="text-zinc-600 leading-relaxed">{item.para}</p>
               </div>
             </SwiperSlide>
           ))}

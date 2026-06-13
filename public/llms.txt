@@ -1,0 +1,22 @@
+# FreshBasket
+
+FreshBasket is an online grocery delivery platform that provides fresh organic fruits, vegetables, dairy products, seafood, and daily essentials.
+
+## Main Pages
+- Home: /
+- Fruits: /fruits
+- Dairy: /dairy
+- Seafood: /seafood
+- All Products: /all-products
+
+## Description
+FreshBasket focuses on delivering fresh, healthy, and organic groceries directly to customers with fast delivery and easy online shopping experience.
+
+## Tech Stack
+- React
+- Vite
+- Tailwind CSS
+- React Router
+
+## Purpose
+This site is an ecommerce grocery platform built for fast, mobile-friendly shopping experience.

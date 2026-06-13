@@ -2,7 +2,7 @@ import React from "react";
 import { FaHeart, FaPlus } from "react-icons/fa";
 import Button from "../Button/Button";
 
-const Cards = ({ image, name, price }) => {
+const Cards = React.memo(({ image, name, price }) => {
   return (
     <article
       className="bg-zinc-100 p-5 rounded-xl hover:shadow-lg transition-all duration-300"
@@ -10,7 +10,6 @@ const Cards = ({ image, name, price }) => {
     >
       {/* Actions */}
       <div className="flex justify-between">
-
         {/* Wishlist Button */}
         <button
           type="button"
@@ -36,15 +35,16 @@ const Cards = ({ image, name, price }) => {
           src={image}
           alt={name}
           loading="lazy"
+          decoding="async"
+          width={300}
+          height={300}
           className="w-full h-full mx-auto object-contain"
         />
       </div>
 
       {/* Content */}
       <div className="text-center">
-        <h3 className="text-2xl font-semibold text-zinc-800">
-          {name}
-        </h3>
+        <h3 className="text-2xl font-semibold text-zinc-800">{name}</h3>
 
         <p className="text-2xl font-bold mt-4 mb-3 text-green-600">
           ${Number(price).toFixed(2)}
@@ -54,6 +54,6 @@ const Cards = ({ image, name, price }) => {
       </div>
     </article>
   );
-};
+});
 
 export default Cards;
