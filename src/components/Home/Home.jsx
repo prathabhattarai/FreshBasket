@@ -6,6 +6,7 @@ import Products from "../Products/Products";
 import Discount from "../Discount/Discount";
 import Process from "../Process/Process";
 import Testimonials from "../Testimonials/Testimonials";
+import FAQ from "../FAQPage/FAQ";
 
 const Home = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -45,6 +46,11 @@ const Home = () => {
       {/* Testimonials */}
       <section aria-label="Customer testimonials">
         <Testimonials />
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" aria-label="Frequently asked questions">
+        <FAQ />
       </section>
     </main>
   );

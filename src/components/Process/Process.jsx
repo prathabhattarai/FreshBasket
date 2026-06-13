@@ -84,7 +84,7 @@ const Process = () => {
       className="bg-white"
     >
       <div className="max-w-[1400px] mx-auto px-10 py-20">
-        <div id="our-process" className="w-fit mr-auto">
+        <div id="our-process" className="justify-center flex">
           <Heading highlight="Our" heading="Process" />
         </div>
 

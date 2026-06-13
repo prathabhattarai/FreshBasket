@@ -12,16 +12,15 @@ const Navbar = ({ showMenu, setShowMenu }) => {
     setShowMenu(!showMenu);
   };
 
+  const closeMenu = () => setShowMenu(false);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -37,11 +36,10 @@ const Navbar = ({ showMenu, setShowMenu }) => {
         {/* Logo */}
         <Link
           to="/"
-          aria-label="FreshBasket Home"
+          onClick={closeMenu}
           className="flex items-center gap-2 text-3xl font-bold tracking-wide"
         >
           <RiLeafFill className="text-green-600 text-4xl" />
-
           <span>
             <span className="text-green-500">Fresh</span>
             <span className="text-gray-800">Basket</span>
@@ -49,39 +47,34 @@ const Navbar = ({ showMenu, setShowMenu }) => {
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="md:flex items-center gap-x-15 hidden">
+        <ul className="md:flex items-center gap-x-12 hidden">
           <li>
-            <a
-              href="#home"
-              className="tracking-wider font-semibold text-green-600"
-            >
+            <a href="#home" className="font-semibold text-green-600">
               Home
             </a>
           </li>
 
           <li>
-            <a
-              href="#about"
-              className="tracking-wider font-semibold text-zinc-800 hover:text-green-600"
-            >
+            <a href="#about" className="font-semibold text-zinc-800 hover:text-green-600">
               About Us
             </a>
           </li>
 
           <li>
-            <a
-              href="#process"
-              className="tracking-wider font-semibold text-zinc-800 hover:text-green-600"
-            >
+            <a href="#process" className="font-semibold text-zinc-800 hover:text-green-600">
               Process
             </a>
           </li>
 
+          {/* ✅ FAQ ADDED */}
           <li>
-            <a
-              href="#contact"
-              className="tracking-wider font-semibold text-zinc-800 hover:text-green-600"
-            >
+            <a href="#faq" className="font-semibold text-zinc-800 hover:text-green-600">
+              FAQ
+            </a>
+          </li>
+
+          <li>
+            <a href="#contact" className="font-semibold text-zinc-800 hover:text-green-600">
               Contact Us
             </a>
           </li>
@@ -90,53 +83,32 @@ const Navbar = ({ showMenu, setShowMenu }) => {
         {/* Actions */}
         <div className="flex items-center gap-x-5">
           {/* Search */}
-          <form
-            role="search"
-            className="md:flex p-1 border-2 border-green-600 rounded-full hidden"
-          >
+          <form className="hidden md:flex p-1 border-2 border-green-600 rounded-full">
             <input
               type="search"
-              name="search"
               placeholder="Search products..."
-              autoComplete="off"
-              aria-label="Search products"
               className="flex-1 h-[4vh] px-2 focus:outline-none"
             />
-
             <button
               type="submit"
-              aria-label="Search"
-              className="bg-green-600 text-white w-7 h-7 flex justify-center items-center rounded-full text-xl"
+              className="bg-green-600 text-white w-7 h-7 flex items-center justify-center rounded-full"
             >
               <IoIosSearch />
             </button>
           </form>
 
-          {/* Wishlist */}
-          <button
-            type="button"
-            aria-label="Wishlist"
-            className="text-zinc-800 text-2xl"
-          >
+          <button className="text-2xl">
             <IoIosHeart />
           </button>
 
-          {/* Cart */}
-          <button
-            type="button"
-            aria-label="Shopping Cart"
-            className="text-zinc-800 text-2xl"
-          >
+          <button className="text-2xl">
             <HiShoppingBag />
           </button>
 
-          {/* Mobile Menu Toggle */}
           <button
-            type="button"
-            aria-label={showMenu ? "Close Menu" : "Open Menu"}
-            aria-expanded={showMenu}
             onClick={toggleMenu}
-            className="text-zinc-800 text-3xl md:hidden"
+            className="md:hidden text-3xl"
+            aria-expanded={showMenu}
           >
             {showMenu ? <TbMenu3 /> : <TbMenu2 />}
           </button>
@@ -144,65 +116,37 @@ const Navbar = ({ showMenu, setShowMenu }) => {
 
         {/* Mobile Menu */}
         <ul
-          className={`flex flex-col items-center gap-y-8 md:hidden absolute top-[12vh] right-0 shadow-lg bg-green-500/15 backdrop-blur-xl rounded-xl p-10 -left-full transform -translate-x-1/2 transition-all duration-500 ${
-            showMenu ? "left-1/2" : ""
+          className={`md:hidden absolute top-[12vh] left-1/2 -translate-x-1/2 flex flex-col items-center gap-y-6 bg-white shadow-lg rounded-xl p-8 transition-all duration-300 ${
+            showMenu ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         >
           <li>
-            <a
-              href="#home"
-              className="tracking-wider font-semibold text-green-600"
-            >
-              Home
-            </a>
+            <a onClick={closeMenu} href="#home">Home</a>
+          </li>
+          <li>
+            <a onClick={closeMenu} href="#about">About Us</a>
+          </li>
+          <li>
+            <a onClick={closeMenu} href="#process">Process</a>
+          </li>
+
+          {/* ✅ FAQ ADDED */}
+          <li>
+            <a onClick={closeMenu} href="#faq">FAQ</a>
           </li>
 
           <li>
-            <a
-              href="#about"
-              className="tracking-wider font-semibold text-zinc-800 hover:text-green-600"
-            >
-              About Us
-            </a>
+            <a onClick={closeMenu} href="#contact">Contact Us</a>
           </li>
 
           <li>
-            <a
-              href="#process"
-              className="tracking-wider font-semibold text-zinc-800 hover:text-green-600"
-            >
-              Process
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#contact"
-              className="tracking-wider font-semibold text-zinc-800 hover:text-green-600"
-            >
-              Contact Us
-            </a>
-          </li>
-
-          <li>
-            <form
-              role="search"
-              className="flex p-1 border-2 border-green-600 rounded-full"
-            >
+            <form className="flex p-1 border-2 border-green-600 rounded-full">
               <input
                 type="search"
-                name="mobile-search"
                 placeholder="Search products..."
-                autoComplete="off"
-                aria-label="Search products"
                 className="flex-1 h-[4vh] px-2 focus:outline-none"
               />
-
-              <button
-                type="submit"
-                aria-label="Search"
-                className="bg-green-600 text-white w-7 h-7 flex justify-center items-center rounded-full text-xl"
-              >
+              <button className="bg-green-600 text-white w-7 h-7 flex items-center justify-center rounded-full">
                 <IoIosSearch />
               </button>
             </form>
